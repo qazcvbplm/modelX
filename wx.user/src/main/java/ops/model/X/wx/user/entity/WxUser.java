@@ -66,6 +66,13 @@ public class WxUser implements Serializable {
     @Column(name = "create_time", nullable = false)
     private Date createTime;
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
     public WxUser(String openId, String nickName, String avatarUrl, String gender, String province, String city, String phone, Date createTime) {
         this.openId = openId;
