@@ -3,7 +3,7 @@ package ops.model.X.wx.user.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import ops.model.X.base.service.OpsServiceImpl;
 import ops.model.X.wx.user.dao.WxUserDao;
 import ops.model.X.wx.user.dto.CodeToWxUser;
 import ops.model.X.wx.user.entity.WxUser;
@@ -12,10 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
-import java.util.Date;
 
 @Service
-public class WxUserServiceImpl extends ServiceImpl<WxUserDao, WxUser> implements WxUserService {
+public class WxUserServiceImpl extends OpsServiceImpl<WxUserDao, WxUser> implements WxUserService {
 
     private static String openIdUrl = "https://api.weixin.qq.com/sns/jscode2session?appid=";
 
@@ -45,7 +44,6 @@ public class WxUserServiceImpl extends ServiceImpl<WxUserDao, WxUser> implements
         if (wxUser == null) {
             wxUser = new WxUser();
             wxUser.setOpenId(openId);
-            wxUser.setCreateTime(new Date());
             this.save(wxUser);
         }
         codeToWxUser.setWxUser(wxUser);

@@ -36,7 +36,11 @@
             <groupId>ops.model.X</groupId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
+        <dependency>
+            <artifactId>file.system</artifactId>
+            <groupId>ops.model.X</groupId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

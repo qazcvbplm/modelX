@@ -2,9 +2,10 @@ package ops.model.X.wx.user.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import ops.model.X.base.entity.BaseEntity;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "wx_user", indexes = {@Index(name = "user_index", columnList = "open_id")})
-public class WxUser implements Serializable {
+public class WxUser implements BaseEntity {
 
     @TableId(type = IdType.AUTO)
     @Id
@@ -63,6 +64,20 @@ public class WxUser implements Serializable {
     @Column(name = "phone", nullable = true, length = 4)
     private String phone;
 
+    /**
+     * 余额
+     */
+    @Column(name = "money", nullable = false)
+    private BigDecimal money;
+
+    /**
+     * 积分
+     */
+    @Column(name = "source", nullable = false)
+    private Integer source;
+
+
+
     @Column(name = "create_time", nullable = false)
     private Date createTime;
 
@@ -70,11 +85,42 @@ public class WxUser implements Serializable {
         return createTime;
     }
 
+    public BigDecimal getMoney() {
+        return money;
+    }
+
+    public void setMoney(BigDecimal money) {
+        this.money = money;
+    }
+
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public WxUser(String openId, String nickName, String avatarUrl, String gender, String province, String city, String phone, Date createTime) {
+    @Override
+    public void beAdd() {
+        if (money == null) {
+            money = BigDecimal.ZERO;
+        }
+        if (source == null) {
+            source = 0;
+        }
+    }
+
+    public Integer getSource() {
+        return source;
+    }
+
+    public void setSource(Integer source) {
+        this.source = source;
+    }
+
+    @Override
+    public void beUpdate() {
+
+    }
+
+    public WxUser(String openId, String nickName, String avatarUrl, String gender, String province, String city, String phone) {
         this.openId = openId;
         this.nickName = nickName;
         this.avatarUrl = avatarUrl;
@@ -82,7 +128,6 @@ public class WxUser implements Serializable {
         this.province = province;
         this.city = city;
         this.phone = phone;
-        this.createTime = createTime;
     }
 
     public WxUser() {
