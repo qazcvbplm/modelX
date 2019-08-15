@@ -13,6 +13,7 @@
         <module>test.web</module>
         <module>base</module>
         <module>file.system</module>
+        <module>wx.api</module>
     </modules>
 
 
