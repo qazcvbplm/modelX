@@ -1,4 +1,4 @@
-package ops.model.X.base;
+package ops.model.X.base.net;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package ops.model.X.base;
+package ops.model.X.base.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
