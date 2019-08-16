@@ -27,6 +27,19 @@ public class WxUser implements BaseEntity {
     @Column(name = "open_id", nullable = false, length = 50)
     private String openId;
 
+    /**
+     * 微信平台唯一标识
+     */
+    @Column(name = "union_id", nullable = false, length = 50)
+    private String unionId;
+
+    public String getUnionId() {
+        return unionId;
+    }
+
+    public void setUnionId(String unionId) {
+        this.unionId = unionId;
+    }
 
     /**
      * 微信昵称
@@ -120,8 +133,9 @@ public class WxUser implements BaseEntity {
 
     }
 
-    public WxUser(String openId, String nickName, String avatarUrl, String gender, String province, String city, String phone) {
+    public WxUser(String openId, String unionId, String nickName, String avatarUrl, String gender, String province, String city, String phone) {
         this.openId = openId;
+        this.unionId = unionId;
         this.nickName = nickName;
         this.avatarUrl = avatarUrl;
         this.gender = gender;

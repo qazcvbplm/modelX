@@ -38,12 +38,14 @@ public class WxUserServiceImpl extends OpsServiceImpl<WxUserDao, WxUser> impleme
             throw new RuntimeException(wxRes.getString("errmsg"));
         }
         String openId = wxRes.getString("openid");
+        String unionId = wxRes.getString("unionid");
         String sessionKey = wxRes.getString("session_key");
         codeToWxUser.setSessionKey(sessionKey);
         WxUser wxUser = findByOpenId(openId);
         if (wxUser == null) {
             wxUser = new WxUser();
             wxUser.setOpenId(openId);
+            wxUser.setUnionId(unionId);
             this.save(wxUser);
         }
         codeToWxUser.setWxUser(wxUser);
