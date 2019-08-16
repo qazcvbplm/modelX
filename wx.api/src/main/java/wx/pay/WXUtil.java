@@ -3,8 +3,6 @@ package wx.pay;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.thoughtworks.xstream.core.util.Base64Encoder;
-import ops.school.api.dto.min.MinMessageDTO;
-import ops.school.api.exception.YWException;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -43,7 +41,7 @@ public class WXUtil {
             // 正确获取openid
             return map;
         } else {
-            throw new YWException(RequestOpenidjson.getString("errmsg"));
+            throw new RuntimeException(RequestOpenidjson.getString("errmsg"));
         }
     }
 
@@ -129,19 +127,19 @@ public class WXUtil {
     }
 
 
-    /**
+    /*  *//**
      * 发送小程序服务通知模板
      * touser 用户openid
      * template_id 模板id
      * form_id  表单id  或者支付id
      * keyword 关键字 1,2,3,4,5,6,7.。。。
-     */
+     *//*
     public static void snedM(MinMessageDTO minMessageDTO) {
         //发送模板消息
         String access_token = getAccessToken(minMessageDTO.getAppId(), minMessageDTO.getSecret());
         String rs = PayUtil.httpRequest(msurl + access_token,
                 "POST", JSON.toJSONString(minMessageDTO));
-    }
+    }*/
 
 
 /*	public static boolean checkFK(String appid,String mch_id,String key,String out_trade_no) {
