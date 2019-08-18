@@ -15,6 +15,7 @@
         <module>file.system</module>
         <module>wx.api</module>
         <module>auth</module>
+        <module>run</module>
     </modules>
     <repositories>
         <repository>
