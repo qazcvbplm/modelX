@@ -47,6 +47,11 @@ public class WxUserServiceImpl extends OpsServiceImpl<WxUserDao, WxUser> impleme
             wxUser.setOpenId(openId);
             wxUser.setUnionId(unionId);
             this.save(wxUser);
+        } else {
+            if (wxUser.getUnionId() == null && unionId != null) {
+                wxUser.setUnionId(unionId);
+                updateById(wxUser);
+            }
         }
         codeToWxUser.setWxUser(wxUser);
         return codeToWxUser;

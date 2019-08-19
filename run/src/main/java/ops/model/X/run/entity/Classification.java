@@ -2,27 +2,45 @@ package ops.model.X.run.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import ops.model.X.base.entity.BaseEntity;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "run_classification", indexes = {@Index(columnList = "open_id")})
+@Table(name = "run_classification")
 public class Classification implements BaseEntity {
 
     @TableId(type = IdType.AUTO)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    /**
-     * 微信用户唯一标识
-     */
-    @Column(name = "open_id", nullable = false, length = 50)
-    private String openId;
+
+    @Column(name = "name", nullable = false, length = 50)
+    private String name;
 
     @Column(name = "create_time", nullable = false)
     private Date createTime;
+
+    @TableLogic
+    private Integer deleted;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
+    }
 
     public Long getId() {
         return id;
@@ -32,13 +50,6 @@ public class Classification implements BaseEntity {
         this.id = id;
     }
 
-    public String getOpenId() {
-        return openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
 
     public Date getCreateTime() {
         return createTime;
