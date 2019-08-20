@@ -37,7 +37,7 @@ public class FileController {
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage());
         }
-        return "http://" + request.getServerName() + ":" + request.getServerPort() + "/image/" + fileName;
+        return "http://" + request.getServerName() + ":" + request.getServerPort() + "/model/image/" + fileName;
     }
 
 }
