@@ -68,13 +68,13 @@ public class WxUser implements BaseEntity {
     /**
      * 城市
      */
-    @Column(name = "city", nullable = true, length = 4)
+    @Column(name = "city", nullable = true, length = 20)
     private String city;
 
     /**
      * 手机号码
      */
-    @Column(name = "phone", nullable = true, length = 4)
+    @Column(name = "phone", nullable = true, length = 11)
     private String phone;
 
     /**
