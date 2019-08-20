@@ -78,6 +78,8 @@ public class MinMessageDTO {
     }
 
     public static class Data {
+        private KeyWord first;
+        private KeyWord remark;
         private KeyWord keyword1;
         private KeyWord keyword2;
         private KeyWord keyword3;
@@ -88,6 +90,22 @@ public class MinMessageDTO {
         private KeyWord keyword8;
         private KeyWord keyword9;
 
+        public KeyWord getFirst() {
+            return first;
+        }
+
+        public void setFirst(KeyWord first) {
+            this.first = first;
+        }
+
+        public KeyWord getRemark() {
+            return remark;
+        }
+
+        public void setRemark(KeyWord remark) {
+            this.remark = remark;
+        }
+
         public static Data getData(String... params) {
             int length = params.length;
             JSONObject data = new JSONObject();
@@ -97,6 +115,31 @@ public class MinMessageDTO {
                 keyword.put("value", params[i]);
                 keyword.put("color", "#173177");
                 data.put("keyword" + (i + 1), keyword);
+            }
+            return JSON.parseObject(data.toString(), Data.class);
+        }
+
+        public static Data getData(String first, String remark, String... params) {
+            int length = params.length;
+            JSONObject data = new JSONObject();
+            JSONObject keyword = null;
+            if (first != null) {
+                keyword = new JSONObject();
+                keyword.put("value", first);
+                keyword.put("color", "#173177");
+                data.put("first", keyword);
+            }
+            for (int i = 0; i < length; i++) {
+                keyword = new JSONObject();
+                keyword.put("value", params[i]);
+                keyword.put("color", "#173177");
+                data.put("keyword" + (i + 1), keyword);
+            }
+            if (remark != null) {
+                keyword = new JSONObject();
+                keyword.put("value", remark);
+                keyword.put("color", "#173177");
+                data.put("remark", keyword);
             }
             return JSON.parseObject(data.toString(), Data.class);
         }
