@@ -1,5 +1,7 @@
 package ops.model.X.min.app.util;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import ops.model.X.min.app.entity.MinApp;
 import ops.model.X.min.app.entity.MinMessage;
 
@@ -86,6 +88,20 @@ public class MinMessageDTO {
         private KeyWord keyword8;
         private KeyWord keyword9;
 
+        public static Data getData(String... params) {
+            int length = params.length;
+            JSONObject data = new JSONObject();
+            JSONObject keyword = null;
+            for (int i = 0; i < length; i++) {
+                keyword = new JSONObject();
+                keyword.put("value", params[i]);
+                keyword.put("color", "#173177");
+                data.put("keyword" + (i + 1), keyword);
+            }
+            return JSON.parseObject(data.toString(), Data.class);
+        }
+
+
         public KeyWord getKeyword1() {
             return keyword1;
         }
@@ -158,81 +174,7 @@ public class MinMessageDTO {
             this.keyword9 = keyword9;
         }
 
-        public Data(KeyWord keyword1, KeyWord keyword2, KeyWord keyword3) {
-            this.keyword1 = keyword1;
-            this.keyword2 = keyword2;
-            this.keyword3 = keyword3;
-        }
 
-        public Data(KeyWord keyword1, KeyWord keyword2, KeyWord keyword3, KeyWord keyword4) {
-            this.keyword1 = keyword1;
-            this.keyword2 = keyword2;
-            this.keyword3 = keyword3;
-            this.keyword4 = keyword4;
-        }
-
-        public Data(KeyWord keyword1, KeyWord keyword2) {
-            this.keyword1 = keyword1;
-            this.keyword2 = keyword2;
-        }
-
-        public Data(KeyWord keyword1) {
-            this.keyword1 = keyword1;
-        }
-
-        public Data(KeyWord keyword1, KeyWord keyword2, KeyWord keyword3, KeyWord keyword4, KeyWord keyword5, KeyWord keyword6, KeyWord keyword7, KeyWord keyword8) {
-            this.keyword1 = keyword1;
-            this.keyword2 = keyword2;
-            this.keyword3 = keyword3;
-            this.keyword4 = keyword4;
-            this.keyword5 = keyword5;
-            this.keyword6 = keyword6;
-            this.keyword7 = keyword7;
-            this.keyword8 = keyword8;
-        }
-
-        public Data(KeyWord keyword1, KeyWord keyword2, KeyWord keyword3, KeyWord keyword4, KeyWord keyword5, KeyWord keyword6, KeyWord keyword7) {
-            this.keyword1 = keyword1;
-            this.keyword2 = keyword2;
-            this.keyword3 = keyword3;
-            this.keyword4 = keyword4;
-            this.keyword5 = keyword5;
-            this.keyword6 = keyword6;
-            this.keyword7 = keyword7;
-        }
-
-        public Data(KeyWord keyword1, KeyWord keyword2, KeyWord keyword3, KeyWord keyword4, KeyWord keyword5, KeyWord keyword6) {
-            this.keyword1 = keyword1;
-            this.keyword2 = keyword2;
-            this.keyword3 = keyword3;
-            this.keyword4 = keyword4;
-            this.keyword5 = keyword5;
-            this.keyword6 = keyword6;
-        }
-
-        public Data(KeyWord keyword1, KeyWord keyword2, KeyWord keyword3, KeyWord keyword4, KeyWord keyword5) {
-            this.keyword1 = keyword1;
-            this.keyword2 = keyword2;
-            this.keyword3 = keyword3;
-            this.keyword4 = keyword4;
-            this.keyword5 = keyword5;
-        }
-
-        public Data(KeyWord keyword1,
-                    KeyWord keyword2,
-                    KeyWord keyword3,
-                    KeyWord keyword4,
-                    KeyWord keyword5, KeyWord keyword6, KeyWord keyword7, KeyWord keyword8, KeyWord keyword9) {
-            this.keyword1 = keyword1;
-            this.keyword2 = keyword2;
-            this.keyword3 = keyword3;
-            this.keyword4 = keyword4;
-            this.keyword5 = keyword5;
-            this.keyword6 = keyword6;
-            this.keyword7 = keyword7;
-            this.keyword8 = keyword8;
-            this.keyword9 = keyword9;
-        }
     }
 
 
