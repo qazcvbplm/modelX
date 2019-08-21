@@ -16,6 +16,7 @@
         <module>auth</module>
         <module>run</module>
         <module>coupon</module>
+        <module>area</module>
     </modules>
     <repositories>
         <repository>

@@ -32,7 +32,7 @@ public class WxUser implements BaseEntity {
     /**
      * 微信平台唯一标识
      */
-    @Column(name = "union_id", nullable = false, length = 50)
+    @Column(name = "union_id", nullable = true, length = 50)
     private String unionId;
 
     /**
