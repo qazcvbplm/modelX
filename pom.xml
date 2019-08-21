@@ -15,6 +15,7 @@
         <module>wx.api</module>
         <module>auth</module>
         <module>run</module>
+        <module>coupon</module>
     </modules>
     <repositories>
         <repository>

@@ -17,6 +17,9 @@ public class RunOrder implements BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "area_id", nullable = false)
+    private Long areaId;
+
     @Column(name = "order_id", nullable = false, length = 50)
     private String orderId;
 
@@ -51,6 +54,12 @@ public class RunOrder implements BaseEntity {
     @Column(name = "des_latitude", nullable = false)
     private Double desLatitude;
 
+    @Column(name = "coupon_price", nullable = false)
+    private BigDecimal couponPrice;
+
+    @Column(name = "coupon_id", nullable = false)
+    private Long couponId;
+
     @Column(name = "total_price", nullable = false)
     private BigDecimal totalPrice;
 
@@ -60,6 +69,29 @@ public class RunOrder implements BaseEntity {
     @Column(name = "remark", nullable = true, length = 500)
     private String remark;
 
+    public Long getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
+    }
+
+    public Long getCouponId() {
+        return couponId;
+    }
+
+    public void setCouponId(Long couponId) {
+        this.couponId = couponId;
+    }
+
+    public BigDecimal getCouponPrice() {
+        return couponPrice;
+    }
+
+    public void setCouponPrice(BigDecimal couponPrice) {
+        this.couponPrice = couponPrice;
+    }
 
     public Long getId() {
         return id;

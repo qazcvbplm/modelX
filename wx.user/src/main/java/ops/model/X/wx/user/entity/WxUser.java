@@ -21,6 +21,8 @@ public class WxUser implements BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "area_id", nullable = false)
+    private Long areaId;
     /**
      * 微信用户唯一标识
      */
@@ -32,14 +34,6 @@ public class WxUser implements BaseEntity {
      */
     @Column(name = "union_id", nullable = false, length = 50)
     private String unionId;
-
-    public String getUnionId() {
-        return unionId;
-    }
-
-    public void setUnionId(String unionId) {
-        this.unionId = unionId;
-    }
 
     /**
      * 微信昵称
@@ -94,6 +88,22 @@ public class WxUser implements BaseEntity {
     @Column(name = "create_time", nullable = false)
     private Date createTime;
 
+    public Long getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
+    }
+
+    public String getUnionId() {
+        return unionId;
+    }
+
+    public void setUnionId(String unionId) {
+        this.unionId = unionId;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -133,16 +143,6 @@ public class WxUser implements BaseEntity {
 
     }
 
-    public WxUser(String openId, String unionId, String nickName, String avatarUrl, String gender, String province, String city, String phone) {
-        this.openId = openId;
-        this.unionId = unionId;
-        this.nickName = nickName;
-        this.avatarUrl = avatarUrl;
-        this.gender = gender;
-        this.province = province;
-        this.city = city;
-        this.phone = phone;
-    }
 
     public WxUser() {
         super();
