@@ -8,16 +8,16 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "coupon", indexes = {@Index(name = "coupon_index", columnList = "send_type")})
-public class Coupon implements BaseEntity {
+@Table(name = "user_coupon", indexes = {@Index(name = "user_coupon_index", columnList = "user_id,use_type")})
+public class UserCoupon implements BaseEntity {
 
     @TableId(type = IdType.AUTO)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "area_id", nullable = false)
-    private Long areaId;
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
 
     @Column(name = "full", nullable = false)
     private Integer full;
@@ -34,26 +34,24 @@ public class Coupon implements BaseEntity {
     @Column(name = "limit_type", nullable = true, length = 2)
     private String limitType;
 
-    @Column(name = "out_time", nullable = true, length = 3)
-    private Integer outTime;
-
     @Column(name = "create_time", nullable = false)
     private Date createTime;
 
-    public Long getAreaId() {
-        return areaId;
+    @Column(name = "out_time", nullable = false)
+    private Date outTime;
+
+    @Column(name = "use_time", nullable = false)
+    private Date useTime;
+
+    @Column(name = "use_type", nullable = true, length = 2)
+    private Integer useType;
+
+    public Date getUseTime() {
+        return useTime;
     }
 
-    public void setAreaId(Long areaId) {
-        this.areaId = areaId;
-    }
-
-    public Integer getOutTime() {
-        return outTime;
-    }
-
-    public void setOutTime(Integer outTime) {
-        this.outTime = outTime;
+    public void setUseTime(Date useTime) {
+        this.useTime = useTime;
     }
 
     public Long getId() {
@@ -62,6 +60,14 @@ public class Coupon implements BaseEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public Integer getFull() {
@@ -118,5 +124,21 @@ public class Coupon implements BaseEntity {
 
     public void beUpdate() {
 
+    }
+
+    public Date getOutTime() {
+        return outTime;
+    }
+
+    public void setOutTime(Date outTime) {
+        this.outTime = outTime;
+    }
+
+    public Integer getUseType() {
+        return useType;
+    }
+
+    public void setUseType(Integer useType) {
+        this.useType = useType;
     }
 }

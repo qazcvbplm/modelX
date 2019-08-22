@@ -16,4 +16,12 @@ public class OpsServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, T
         }
         return super.save(entity);
     }
+
+    @Override
+    public boolean updateById(T entity) {
+        if (entity instanceof BaseEntity) {
+            ((BaseEntity) entity).beUpdate();
+        }
+        return super.updateById(entity);
+    }
 }
