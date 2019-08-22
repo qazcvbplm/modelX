@@ -2,6 +2,7 @@ package ops.model.X.min.app.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import ops.model.X.min.app.dto.MinMessageDTO;
 import wx.pay.HttpRequest;
 import wx.pay.PayUtil;
 

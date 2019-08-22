@@ -1,4 +1,4 @@
-package ops.model.X.min.app.util;
+package ops.model.X.min.app.dto;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

@@ -9,7 +9,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "run_order", uniqueConstraints = {@UniqueConstraint(columnNames = "order_id")}, indexes = {@Index(columnList = "open_id")})
+@Table(name = "run_order", uniqueConstraints = {@UniqueConstraint(columnNames = "order_id")},
+        indexes = {@Index(columnList = "user_id,sender_id")})
 public class RunOrder implements BaseEntity {
 
     @TableId(type = IdType.AUTO)
@@ -23,17 +24,33 @@ public class RunOrder implements BaseEntity {
     @Column(name = "order_id", nullable = false, length = 50)
     private String orderId;
 
-    @Column(name = "source_user_id", nullable = false)
-    private Long sourceOpenId;
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
 
-    @Column(name = "des_user_id", nullable = true)
-    private Long desOpenId;
+    @Column(name = "user_name", nullable = false,length = 40)
+    private String userName;
 
-    @Column(name = "source_user_obj", nullable = false, length = 50)
-    private String sourceUserObj;
+    @Column(name = "user_phone", nullable = false,length = 11)
+    private String userPhone;
 
-    @Column(name = "des_user_obj", nullable = true, length = 50)
-    private String desUserObj;
+    @Column(name = "user_image", nullable = false,length = 100)
+    private String userImage;
+
+    @Column(name = "user_address", nullable = false,length = 200)
+    private String userAddress;
+
+    @Column(name = "sender_id", nullable = true)
+    private Long senderId;
+
+
+    @Column(name = "sender_name", nullable = true,length = 40)
+    private String senderName;
+
+    @Column(name = "sender_phone", nullable = true,length = 11)
+    private String senderPhone;
+
+    @Column(name = "sender_image", nullable = true,length = 100)
+    private String senderImage;
 
 
     @Column(name = "distance", nullable = false)
@@ -54,20 +71,104 @@ public class RunOrder implements BaseEntity {
     @Column(name = "des_latitude", nullable = false)
     private Double desLatitude;
 
-    @Column(name = "coupon_price", nullable = false)
+    @Column(name = "coupon_price", nullable = true)
     private BigDecimal couponPrice;
 
-    @Column(name = "coupon_id", nullable = false)
+    @Column(name = "coupon_id", nullable = true)
     private Long couponId;
 
     @Column(name = "total_price", nullable = false)
     private BigDecimal totalPrice;
 
+    @Column(name = "prepare_id", nullable = true,length = 60)
+    private Date prepareId;
+
     @Column(name = "create_time", nullable = false)
     private Date createTime;
 
+
     @Column(name = "remark", nullable = true, length = 500)
     private String remark;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
+    }
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
+    }
+
+    public String getUserAddress() {
+        return userAddress;
+    }
+
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
+    }
+
+    public Long getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(Long senderId) {
+        this.senderId = senderId;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
+    public String getSenderPhone() {
+        return senderPhone;
+    }
+
+    public void setSenderPhone(String senderPhone) {
+        this.senderPhone = senderPhone;
+    }
+
+    public String getSenderImage() {
+        return senderImage;
+    }
+
+    public void setSenderImage(String senderImage) {
+        this.senderImage = senderImage;
+    }
+
+    public Date getPrepareId() {
+        return prepareId;
+    }
+
+    public void setPrepareId(Date prepareId) {
+        this.prepareId = prepareId;
+    }
 
     public Long getAreaId() {
         return areaId;
@@ -109,37 +210,7 @@ public class RunOrder implements BaseEntity {
         this.orderId = orderId;
     }
 
-    public Long getSourceOpenId() {
-        return sourceOpenId;
-    }
 
-    public void setSourceOpenId(Long sourceOpenId) {
-        this.sourceOpenId = sourceOpenId;
-    }
-
-    public Long getDesOpenId() {
-        return desOpenId;
-    }
-
-    public void setDesOpenId(Long desOpenId) {
-        this.desOpenId = desOpenId;
-    }
-
-    public String getSourceUserObj() {
-        return sourceUserObj;
-    }
-
-    public void setSourceUserObj(String sourceUserObj) {
-        this.sourceUserObj = sourceUserObj;
-    }
-
-    public String getDesUserObj() {
-        return desUserObj;
-    }
-
-    public void setDesUserObj(String desUserObj) {
-        this.desUserObj = desUserObj;
-    }
 
     public Double getDistance() {
         return distance;
