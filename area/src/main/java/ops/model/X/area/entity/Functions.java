@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "functions", indexes = {@Index(name = "functions_index", columnList = "area_id")})
+@Table(name = "functions", indexes = {@Index(name = "functions_index", columnList = "area_id,f_type")})
 public class Functions implements BaseEntity {
 
     @TableId(type = IdType.AUTO)
@@ -19,6 +19,9 @@ public class Functions implements BaseEntity {
 
     @Column(name = "area_id", nullable = false)
     private Long areaId;
+
+    @Column(name = "parent_id", nullable = false)
+    private Long parentId;
 
     @Column(name = "title", nullable = true, length = 255)
     private String title;
@@ -50,6 +53,14 @@ public class Functions implements BaseEntity {
     @TableLogic
     @Column(nullable = false, columnDefinition = "int default 0")
     private Integer deleted;
+
+    public Long getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
 
     public Integer getDeleted() {
         return deleted;
