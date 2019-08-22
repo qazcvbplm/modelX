@@ -2,6 +2,7 @@ package ops.model.X.wx.user.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.Version;
 import ops.model.X.base.entity.BaseEntity;
 
 import javax.persistence.*;
@@ -87,6 +88,19 @@ public class WxUser implements BaseEntity {
 
     @Column(name = "create_time", nullable = false)
     private Date createTime;
+
+    @Version
+    @Column(nullable = false, columnDefinition = "int default 0")
+    private Integer version;
+
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 
     public Long getAreaId() {
         return areaId;
