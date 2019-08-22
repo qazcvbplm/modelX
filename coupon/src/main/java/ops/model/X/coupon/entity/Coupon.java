@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "coupon", indexes = {@Index(name = "coupon_index", columnList = "type")})
+@Table(name = "coupon", indexes = {@Index(name = "coupon_index", columnList = "send_type")})
 public class Coupon implements BaseEntity {
 
     @TableId(type = IdType.AUTO)
