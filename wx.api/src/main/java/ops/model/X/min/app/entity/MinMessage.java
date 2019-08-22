@@ -30,6 +30,7 @@ public class MinMessage implements BaseEntity {
     private String des;
 
     @TableLogic
+    @Column(nullable = false, columnDefinition = "int default 0")
     private Integer deleted;
 
     public Integer getDeleted() {

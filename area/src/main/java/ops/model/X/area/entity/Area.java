@@ -29,6 +29,7 @@ public class Area implements BaseEntity {
     @Column(name = "parent_id", nullable = false)
     private Long parentId;
     @TableLogic
+    @Column(nullable = false, columnDefinition = "int default 0")
     private Integer deleted;
 
     public Integer getDeleted() {

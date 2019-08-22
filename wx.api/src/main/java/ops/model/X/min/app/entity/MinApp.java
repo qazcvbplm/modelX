@@ -36,6 +36,7 @@ public class MinApp implements BaseEntity {
     private String certPath;
 
     @TableLogic
+    @Column(nullable = false, columnDefinition = "int default 0")
     private Integer deleted;
 
     public Integer getDeleted() {

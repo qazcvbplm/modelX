@@ -67,6 +67,7 @@ public class WxUserAddress implements BaseEntity {
     private Date createTime;
 
     @TableLogic
+    @Column(nullable = false, columnDefinition = "int default 0")
     private Integer deleted;
 
     public Integer getDeleted() {
