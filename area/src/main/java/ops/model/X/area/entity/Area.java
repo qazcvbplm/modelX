@@ -2,6 +2,7 @@ package ops.model.X.area.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import ops.model.X.base.entity.BaseEntity;
 
 import javax.persistence.*;
@@ -27,6 +28,16 @@ public class Area implements BaseEntity {
 
     @Column(name = "parent_id", nullable = false)
     private Long parentId;
+    @TableLogic
+    private Integer deleted;
+
+    public Integer getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
+    }
 
     public Long getId() {
         return id;

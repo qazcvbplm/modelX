@@ -2,6 +2,7 @@ package ops.model.X.wx.user.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import ops.model.X.base.entity.BaseEntity;
 
 import javax.persistence.*;
@@ -64,6 +65,17 @@ public class WxUserAddress implements BaseEntity {
 
     @Column(name = "create_time", nullable = false)
     private Date createTime;
+
+    @TableLogic
+    private Integer deleted;
+
+    public Integer getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
+    }
 
     public WxUserAddress(Long wxUserId, String province, String city, String area, String phone, String gender, Double longitude, Double latitude, String address) {
         this.wxUserId = wxUserId;

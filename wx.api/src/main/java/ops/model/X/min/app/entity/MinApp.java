@@ -2,6 +2,7 @@ package ops.model.X.min.app.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import ops.model.X.base.entity.BaseEntity;
 
 import javax.persistence.*;
@@ -33,6 +34,17 @@ public class MinApp implements BaseEntity {
 
     @Column(name = "cert_path", nullable = false, length = 200)
     private String certPath;
+
+    @TableLogic
+    private Integer deleted;
+
+    public Integer getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
+    }
 
     @Override
     public Long getId() {
