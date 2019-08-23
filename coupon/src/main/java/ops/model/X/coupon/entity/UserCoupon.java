@@ -40,10 +40,10 @@ public class UserCoupon implements BaseEntity {
     @Column(name = "out_time", nullable = false)
     private Date outTime;
 
-    @Column(name = "use_time", nullable = false)
+    @Column(name = "use_time", nullable = true)
     private Date useTime;
 
-    @Column(name = "use_type", nullable = true, length = 2)
+    @Column(name = "use_type", nullable = false, length = 2)
     private Integer useType;
 
     public Date getUseTime() {
