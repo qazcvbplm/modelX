@@ -26,6 +26,9 @@ public class Functions implements BaseEntity {
     @Column(name = "title", nullable = true, length = 255)
     private String title;
 
+    @Column(name = "sub_title", nullable = true, length = 255)
+    private String subTitle;
+
     @Lob
     @Column(name = "rich_text", nullable = true)
     private String richText;
@@ -53,6 +56,14 @@ public class Functions implements BaseEntity {
     @TableLogic
     @Column(nullable = false, columnDefinition = "int default 0")
     private Integer deleted;
+
+    public String getSubTitle() {
+        return subTitle;
+    }
+
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
+    }
 
     public Long getParentId() {
         return parentId;
