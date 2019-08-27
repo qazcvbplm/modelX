@@ -46,7 +46,7 @@ public class Functions implements BaseEntity {
     @Column(name = "path", nullable = true, length = 50)
     private String path;
 
-    @Column(name = "sort", nullable = false)
+    @Column(name = "sort", nullable = true)
     private Long sort;
 
 

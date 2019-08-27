@@ -7,5 +7,5 @@ import ops.model.X.base.service.OpsServiceImpl;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AreaServiceimpl extends OpsServiceImpl<AreaDao, Area> implements AreaService {
+public class AreaServiceImpl extends OpsServiceImpl<AreaDao, Area> implements AreaService {
 }
