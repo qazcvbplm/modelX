@@ -31,7 +31,7 @@ public class FileController {
         }
         String suffixName = fileName.substring(fileName.lastIndexOf("."));  // 后缀名
         fileName = UUID.randomUUID() + suffixName; // 新文件名
-        File dest = new File(path + fileName);
+        File dest = new File(path + "/" + fileName);
         try {
             file.transferTo(dest);
         } catch (IOException e) {
