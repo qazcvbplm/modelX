@@ -23,6 +23,9 @@ public class FileController {
     @Value("${file.path:c://}")
     private String path;
 
+    @Value("${server.servlet.context-path:}")
+    private String context;
+
     @PostMapping(value = "/files/upload")
     public String fileUp(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request) {
         String fileName = file.getOriginalFilename();  // 文件名
@@ -37,7 +40,7 @@ public class FileController {
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage());
         }
-        return "http://" + request.getServerName() + ":" + request.getServerPort() + "/model/image/" + fileName;
+        return "http://" + request.getServerName() + ":" + request.getServerPort() + "/" + context + "/model/image/" + fileName;
     }
 
 }
