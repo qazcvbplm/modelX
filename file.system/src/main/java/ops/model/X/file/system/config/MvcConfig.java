@@ -12,7 +12,7 @@ public class MvcConfig implements WebMvcConfigurer {
     private String path;
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/model/image/**").addResourceLocations("file:///" + path);
+        registry.addResourceHandler("/model/image/**").addResourceLocations("file:" + path);
     }
 
 }

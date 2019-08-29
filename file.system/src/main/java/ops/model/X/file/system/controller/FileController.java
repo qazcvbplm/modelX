@@ -23,8 +23,8 @@ public class FileController {
     @Value("${file.path:c://}")
     private String path;
 
-    @Value("${server.servlet.context-path:}")
-    private String context;
+    @Value("${file.prefix:n}")
+    private String prefix;
 
     @PostMapping(value = "/files/upload")
     public String fileUp(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request) {
@@ -35,12 +35,19 @@ public class FileController {
         String suffixName = fileName.substring(fileName.lastIndexOf("."));  // 后缀名
         fileName = UUID.randomUUID() + suffixName; // 新文件名
         File dest = new File(path + "/" + fileName);
+        File dirs = new File(path);
+        if (!dirs.exists()) {
+            dirs.mkdirs();
+        }
         try {
             file.transferTo(dest);
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage());
         }
-        return "http://" + request.getServerName() + ":" + request.getServerPort() + "/" + context + "/model/image/" + fileName;
+        if (prefix.equals("n")) {
+            return "http://" + request.getServerName() + ":" + request.getServerPort() + "/model/image/" + fileName;
+        }
+        return prefix + "/model/image/" + fileName;
     }
 
 }
