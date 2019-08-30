@@ -26,7 +26,8 @@ public class PageAble {
         this.size = size;
     }
 
-    public Page getPage() {
+
+    public Page getIPage() {
         if (this.page == null) {
             this.page = 1;
         }

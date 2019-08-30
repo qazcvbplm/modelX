@@ -53,9 +53,20 @@ public class Functions implements BaseEntity {
     @Column(name = "create_time", nullable = false)
     private Date createTime;
 
+    @Column(name = "remark", nullable = true, length = 100)
+    private String remark;
+
     @TableLogic
     @Column(nullable = false, columnDefinition = "int default 0")
     private Integer deleted;
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
     public String getSubTitle() {
         return subTitle;
