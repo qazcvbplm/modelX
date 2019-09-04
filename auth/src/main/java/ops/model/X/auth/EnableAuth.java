@@ -8,5 +8,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Import({AutoConfigAuth.class})
-public @interface EnableArea {
+public @interface EnableAuth {
 }
