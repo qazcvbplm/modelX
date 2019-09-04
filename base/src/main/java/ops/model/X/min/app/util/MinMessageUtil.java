@@ -2,9 +2,9 @@ package ops.model.X.min.app.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import ops.model.X.base.util.SpringUtil;
 import ops.model.X.min.app.dto.MinMessageDTO;
-import wx.pay.HttpRequest;
-import wx.pay.PayUtil;
+import org.springframework.web.client.RestTemplate;
 
 
 public class MinMessageUtil {
@@ -27,7 +27,8 @@ public class MinMessageUtil {
      */
     public static String getAccessToken(String appId, String secret) {
         if (token != null || ((System.currentTimeMillis() - tokenTime) >= tokenTimeRefreshTime)) {
-            String rs = HttpRequest.sendGet(tokenurl + "&appid=" + appId + "&secret=" + secret, "");
+            String requestUrl = new StringBuilder().append(tokenurl).append("&appid=").append(appId).append("&secret=").append(secret).toString();
+            String rs = SpringUtil.getBean(RestTemplate.class).getForObject(requestUrl, String.class);
             JSONObject json = JSON.parseObject(rs, JSONObject.class);
             return json.getString("access_token");
         } else {
@@ -46,6 +47,6 @@ public class MinMessageUtil {
     public static void snedM(MinMessageDTO minMessageDTO) {
         //发送模板消息
         String access_token = getAccessToken(minMessageDTO.getAppId(), minMessageDTO.getSecret());
-        String rs = PayUtil.httpRequest(msurl + access_token, "POST", JSON.toJSONString(minMessageDTO));
+        String rs = SpringUtil.getBean(RestTemplate.class).postForObject(msurl + access_token, minMessageDTO, String.class);
     }
 }

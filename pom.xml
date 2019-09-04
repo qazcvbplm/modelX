@@ -9,14 +9,9 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>wx.user</module>
         <module>base</module>
-        <module>file.system</module>
         <module>wx.api</module>
         <module>auth</module>
-        <module>run</module>
-        <module>coupon</module>
-        <module>area</module>
     </modules>
     <repositories>
         <repository>
