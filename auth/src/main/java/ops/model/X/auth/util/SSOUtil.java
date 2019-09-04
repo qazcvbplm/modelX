@@ -1,4 +1,4 @@
-package ops.model.X.auth;
+package ops.model.X.auth.util;
 
 import com.baomidou.kisso.SSOHelper;
 import com.baomidou.kisso.security.token.SSOToken;
@@ -14,10 +14,6 @@ public class SSOUtil {
     }
 
     public static Object token(HttpServletRequest request) {
-        SSOToken ssoToken = SSOHelper.attrToken(request);
-        if (null != ssoToken) {
-            return ssoToken.getId();
-        }
-        return null;
+        return SSOHelper.attrToken(request);
     }
 }
