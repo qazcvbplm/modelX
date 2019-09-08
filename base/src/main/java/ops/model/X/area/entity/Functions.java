@@ -1,6 +1,7 @@
 package ops.model.X.area.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import ops.model.X.base.entity.BaseEntity;
@@ -40,6 +41,7 @@ public class Functions implements BaseEntity {
     @Column(name = "author", nullable = true, length = 30)
     private String author;
 
+    @TableField("f_type")
     @Column(name = "f_type", nullable = true, length = 2)
     private String type;
 
