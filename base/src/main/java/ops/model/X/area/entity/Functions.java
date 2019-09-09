@@ -175,7 +175,9 @@ public class Functions implements BaseEntity {
     }
 
     public void beAdd() {
-
+        if (this.sort == null) {
+            this.sort = System.currentTimeMillis();
+        }
     }
 
     public void beUpdate() {
